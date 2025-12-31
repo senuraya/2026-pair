@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENURA-MD | PREMIUM PAIRING</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #020617;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    /* Animated Background */
+    .bg-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #020617, #0f172a, #1e1b4b);
+      z-index: -1;
+    }
+
+    .circle {
+      position: absolute;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 50%;
+      animation: move 20s infinite linear;
+    }
+
+    @keyframes move {
+      from { transform: translate(0, 0); }
+      to { transform: translate(100vw, 100vh); }
+    }
+
+    /* Main Box */
+    .container {
+      position: relative;
+      width: 380px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(to right, #3b82f6, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+      filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+    }
+
+    p {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+
+    /* Input Styling */
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 2px solid #1e293b;
+      border-radius: 15px;
+      color: #fff;
+      font-size: 1.1rem;
+      text-align: center;
+      transition: 0.3s;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    /* Button Styling */
+    button#submit {
+      width: 100%;
+      padding: 15px;
+      background: #2563eb;
+      border: none;
+      border-radius: 15px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    }
+
+    button#submit:hover {
+      background: #3b82f6;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px rgba(37, 99, 235, 0.5);
+    }
+
+    /* Code Display Area */
+    #pair {
+      margin-top: 30px;
+      min-height: 100px;
+    }
+
+    .code-box {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      border: 1px dashed #3b82f6;
+      animation: slideUp 0.5s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pairing-code {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: 8px;
+      color: #34d399;
+      display: block;
+      margin-bottom: 15px;
+      text-shadow: 0 0 15px rgba(52, 211, 153, 0.4);
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* Spinner */
+    .loader {
+      display: none;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #3b82f6;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+  </style>
+</head>
+<body>
+
+  <div class="bg-animation" id="bg"></div>
+
+  <div class="container">
+    <h2>SENURA-MD</h2>
+    <p>The Future of WhatsApp Botting</p>
+    
+    <div class="input-group">
+      <input type="number" id="number" placeholder="947xxxxxxxx">
+    </div>
+
+    <button id="submit">GET PAIRING CODE</button>
+
+    <div class="loader" id="loader"></div>
+    
+    <div id="pair"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
+  <script>
+    // පසුවිමට circles ටිකක් එකතු කරමු
+    const bg = document.getElementById('bg');
+    for (let i = 0; i < 15; i++) {
+      const circle = document.createElement('div');
+      circle.className = 'circle';
+      const size = Math.random() * 100 + 50 + 'px';
+      circle.style.width = size;
+      circle.style.height = size;
+      circle.style.left = Math.random() * 100 + 'vw';
+      circle.style.top = Math.random() * 100 + 'vh';
+      circle.style.animationDuration = Math.random() * 10 + 10 + 's';
+      bg.appendChild(circle);
+    }
+
+    const submitBtn = document.getElementById("submit");
+    const numberInput = document.getElementById("number");
+    const pairDiv = document.getElementById("pair");
+    const loader = document.getElementById("loader");
+
+    submitBtn.addEventListener("click", async () => {
+      const num = numberInput.value;
+      if (!num) {
+        pairDiv.innerHTML = '<span style="color:#f87171">Please enter number!</span>';
+        return;
+      }
+
+      loader.style.display = "block";
+      pairDiv.innerHTML = "";
+
+      try {
+        const { data } = await axios(`/code?number=${num}`);
+        loader.style.display = "none";
+        const code = data.code || "Error";
+
+        pairDiv.innerHTML = `
+          <div class="code-box">
+            <span class="pairing-code" id="codeText">${code}</span>
+            <button class="copy-btn" onclick="copyCode()">
+              <i class="fa-regular fa-copy"></i> COPY CODE
+            </button>
+          </div>
+        `;
+      } catch (err) {
+        loader.style.display = "none";
+        pairDiv.innerHTML = '<span style="color:#f87171">Connection Error!</span>';
+      }
+    });
+
+    function copyCode() {
+      const code = document.getElementById("codeText").innerText;
+      navigator.clipboard.writeText(code);
+      const btn = document.querySelector(".copy-btn");
+      btn.innerHTML = '<i class="fa-solid fa-check"></i> COPIED';
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-regular fa-copy"></i> COPY CODE';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
